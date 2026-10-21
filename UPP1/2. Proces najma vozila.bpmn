@@ -6,6 +6,7 @@
     <bpmn:messageFlow id="Flow_18ci7lk" sourceRef="Activity_1q6abh1" targetRef="Activity_1xqeqd9" />
     <bpmn:messageFlow id="Flow_1wm1tj3" sourceRef="Activity_1wmqbr7" targetRef="Activity_15sgi8x" />
     <bpmn:messageFlow id="Flow_1ht21tl" sourceRef="Activity_1hvic15" targetRef="Activity_0zdwip4" />
+    <bpmn:messageFlow id="Flow_1nue2tc" sourceRef="Activity_1ldgkbb" targetRef="Activity_0zdwip4" />
     <bpmn:textAnnotation id="TextAnnotation_1mq616w">
       <bpmn:text>2. Proces najma vozila
 Proces najma vozila započinje kada klijent putem web stranice
@@ -139,13 +140,6 @@ OTVORENA PITANJA: ne anvodi da naznacimo preuzimanej vozila, mozda nisam trebala
       <bpmn:outgoing>Flow_1u9fyf7</bpmn:outgoing>
       <bpmn:outgoing>Flow_163e5l3</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1ldgkbb" name="Odbiti ponudu">
-      <bpmn:incoming>Flow_163e5l3</bpmn:incoming>
-      <bpmn:outgoing>Flow_1ug8gf8</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="Event_0b3thq9" name="Prekida se proces najma vozila">
-      <bpmn:incoming>Flow_1ug8gf8</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:task id="Activity_1hvic15" name="Prihvatiti ponudu">
       <bpmn:incoming>Flow_1u9fyf7</bpmn:incoming>
     </bpmn:task>
@@ -154,7 +148,9 @@ OTVORENA PITANJA: ne anvodi da naznacimo preuzimanej vozila, mozda nisam trebala
     <bpmn:sequenceFlow id="Flow_17dzs9d" sourceRef="Activity_15sgi8x" targetRef="Gateway_03qklo3" />
     <bpmn:sequenceFlow id="Flow_1u9fyf7" name="da" sourceRef="Gateway_03qklo3" targetRef="Activity_1hvic15" />
     <bpmn:sequenceFlow id="Flow_163e5l3" name="ne" sourceRef="Gateway_03qklo3" targetRef="Activity_1ldgkbb" />
-    <bpmn:sequenceFlow id="Flow_1ug8gf8" sourceRef="Activity_1ldgkbb" targetRef="Event_0b3thq9" />
+    <bpmn:task id="Activity_1ldgkbb" name="Odbiti ponudu">
+      <bpmn:incoming>Flow_163e5l3</bpmn:incoming>
+    </bpmn:task>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0ksi518">
@@ -361,21 +357,15 @@ OTVORENA PITANJA: ne anvodi da naznacimo preuzimanej vozila, mozda nisam trebala
       <bpmndi:BPMNShape id="Gateway_03qklo3_di" bpmnElement="Gateway_03qklo3" isMarkerVisible="true">
         <dc:Bounds x="1335" y="425" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1330" y="484.5" width="60" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1ldgkbb_di" bpmnElement="Activity_1ldgkbb">
-        <dc:Bounds x="1310" y="270" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0b3thq9_di" bpmnElement="Event_0b3thq9">
-        <dc:Bounds x="1492" y="292" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1466" y="335" width="89" height="27" />
+          <dc:Bounds x="1330" y="388" width="60" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1hvic15_di" bpmnElement="Activity_1hvic15">
         <dc:Bounds x="1460" y="410" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ldgkbb_di" bpmnElement="Activity_1ldgkbb">
+        <dc:Bounds x="1310" y="520" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0fhm93m_di" bpmnElement="Flow_0fhm93m">
@@ -398,15 +388,11 @@ OTVORENA PITANJA: ne anvodi da naznacimo preuzimanej vozila, mozda nisam trebala
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_163e5l3_di" bpmnElement="Flow_163e5l3">
-        <di:waypoint x="1360" y="425" />
-        <di:waypoint x="1360" y="350" />
+        <di:waypoint x="1360" y="475" />
+        <di:waypoint x="1360" y="520" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1340" y="377.5" width="13" height="14" />
+          <dc:Bounds x="1366" y="491.5" width="13" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1ug8gf8_di" bpmnElement="Flow_1ug8gf8">
-        <di:waypoint x="1410" y="310" />
-        <di:waypoint x="1492" y="310" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1egz47h_di" bpmnElement="Association_1egz47h">
         <di:waypoint x="249" y="422" />
@@ -428,6 +414,12 @@ OTVORENA PITANJA: ne anvodi da naznacimo preuzimanej vozila, mozda nisam trebala
         <dc:Bounds x="160" y="50" width="1084.6399535423925" height="172" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1nue2tc_di" bpmnElement="Flow_1nue2tc">
+        <di:waypoint x="1360" y="600" />
+        <di:waypoint x="1360" y="815" />
+        <di:waypoint x="1510" y="815" />
+        <di:waypoint x="1510" y="1030" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
